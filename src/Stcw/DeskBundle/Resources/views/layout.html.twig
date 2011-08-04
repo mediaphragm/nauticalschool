@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ecole Nautique - Nautische School</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/reset.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/grid.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/jquery-ui-1.8.5.custom.css" type="text/css" media="all">
+  <script type="text/javascript" src="/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="/js/jquery.cycle.all.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui-1.8.5.custom.min.js"></script>
+  <!--[if lt IE 9]>
+  	<script type="text/javascript" src="/js/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <header>
+    <nav>
+    	<div class="container">
+        <div class="wrapper">
+          <h1><a href="{{ path('desk_index') }}"><strong>Ecole Nautique</strong>Nautische School</a></h1>
+          <ul>
+          	<li><a href="index.html" class="current">{% trans %}about{% endtrans %}</a></li>
+            <li><a href="index-1.html">formations</a></li>
+            <li><a href="index-2.html">{% trans %}certificates{% endtrans %}</a></li>
+            <li><a href="index-2.html">contacts</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="adv-content">
+    	<div class="container">
+        <ul class="breadcrumbs">
+        	<li>Home</li>
+                <li><a href="{{ path('lang_choose', { 'lang': 'nl' }) }}">nl</a></li>
+                <li><a href="{{ path('lang_choose', { 'lang': 'en_US' }) }}">en</a></li>
+                <li><a href="{{ path('lang_choose', { 'lang': 'fr' }) }}">fr</a></li>
+        </ul>
+        <form action="" id="search-form">
+          <fieldset>
+          	<input type="text" value=""><input type="submit" value="">
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </header>
+  <section id="content">
+
+      {% block intro %}
+      {% endblock %}
+
+    <div class="middle">
+    	<div class="container">
+      	<div class="wrapper">
+        	<div class="grid3 first">
+          	<ul class="categories">
+            	<li><a href="{{ path('student', { 'name': "stcw" }) }}">{% trans %}Students{% endtrans %}</a></li>
+              <li><a href="{{ path('classe') }}">{% trans %}Classes{% endtrans %}</a></li>  
+              <li><a href="{{ path('modules') }}">{% trans %}Formations{% endtrans %}</a></li>
+              <li><a href="{{ path('course_index') }}">{% trans %}Courses{% endtrans %}</a></li>
+              <li><a href="#">Certificates</a></li>
+              <li><a href="#">Planning</a></li>
+              <li><a href="#">My Space</a></li>
+              <li><a href="{{ path('promotion') }}">{% trans %}Promotions{% endtrans %}</a></li>
+              <li><a href="{{ path('category') }}">{% trans %}Categories{% endtrans %}</a></li>
+              <li><a href="{{ path('school') }}">{% trans %}Schools{% endtrans %}</a></li>
+              
+              <!--
+              <li><a href="#">Engineering and Construction</a></li>
+              <li><a href="#">High Technology</a></li>
+              <li><a href="#">Industrial Manufacturing</a></li>
+              -->
+            </ul>
+          </div>
+            <div class="grid9">
+                {% if app.session.hasFlash('notice') %}
+                <div class="flash-notice">
+                {{ app.session.flash('notice') }}
+                </div>
+                {% endif %}
+            {% block content %}
+
+            {% endblock %}
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+    	<div class="container">
+      	<div class="wrapper">
+        	<div class="grid3 first">
+            <h3>Database</h3>
+<!--
+            <ul class="list1">
+              <li><a href="#">Real Application Clusters</a></li>
+              <li><a href="#">Database Security</a></li>
+              <li><a href="#">Secure Enterprise Search</a></li>
+            </ul>
+-->
+          </div>
+          <div class="grid3">
+            <h3>Quick Links</h3>
+<!--
+            <ul class="list2">
+              <li><a href="#">Certification</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">For Midsize Companies</a></li>
+              <li><a href="#">Investors</a></li>
+              <li><a href="#">Technology Network</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+-->
+          </div>
+          <div class="grid3">
+            <h3>Upcoming features</h3>
+<!--
+            <ul class="list2">
+              <li><a href="#">Enterprise Architecture</a></li>
+              <li><a href="#">Enterprise 2.0</a></li>
+              <li><a href="#">Grid</a></li>
+              <li><a href="#">Service-Oriented Architecture</a></li>
+              <li><a href="#">Virtualization</a></li>
+              <li><a href="#">Database XE</a></li>
+              <li><a href="#">Enterprise Management</a></li>
+            </ul>
+-->
+          </div>
+          <div class="grid3">
+          	<div id="datepicker"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+    	<div class="wrapper">
+      	<div class="copy">Created by <a href="mailto:christophe.willemsen@mil.be">Christophe Willemsen</a> (c) 2011  |  <a href="index-4.html">Privacy policy</a></div>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+		$(document).ready(function() {
+			$('.pics').cycle({
+				fx: 'toss',
+				next:   '#next',
+				prev:   '#prev'
+			});
+
+			// Datepicker
+			$('#datepicker').datepicker({
+				inline: true
+			});
+
+		});
+	</script>
+</body>
+</html>

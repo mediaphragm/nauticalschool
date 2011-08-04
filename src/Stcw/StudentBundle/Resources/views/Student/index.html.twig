@@ -1,0 +1,48 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>Students list</h2>
+<hr />
+<ul class="createlink">
+    <li>
+        <a href="{{ path('student_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Lastname</th>
+            <th>Firstname</th>
+            <th>Milid</th>
+            <th>Class</th>
+            <th>Promotion</th>
+            <th>Category</th>
+            <th>Language</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.lastname }}</td>
+            <td>{{ entity.firstname }}</td>
+            <td>{{ entity.milid }}</td>
+            <td>{{ entity.classe }}</td>
+            <td>{{ entity.promotion }} </td>
+            <td>{{ entity.category }}</td>
+            <td>{{ entity.profile.language }}</td>
+            <td>
+                
+                        <a href="{{ path('student_show', { 'id': entity.id }) }}">show</a>
+                    &nbsp;
+                        <a href="{{ path('student_edit', { 'id': entity.id }) }}">edit</a>
+ 
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

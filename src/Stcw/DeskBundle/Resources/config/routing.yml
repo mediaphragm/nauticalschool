@@ -1,0 +1,38 @@
+StcwDeskBundle:
+    resource: "@StcwDeskBundle/Controller/DefaultController.php"
+    type: annotation
+
+StcwStudentBundle:
+  resource: "@StcwStudentBundle/Controller/StudentController.php"
+  type: annotation
+
+StcwCertificateBundle:
+  resource: "@StcwCertificateBundle/Controller/DefaultController.php"
+  type: annotation
+  prefix: /certificates
+
+StcwFormationBundleCourse:
+  resource: "@StcwFormationBundle/Controller/CourseController.php"
+  type: annotation
+  prefix: /formations/courses
+
+StcwFormationBundleModule:
+  resource: "@StcwFormationBundle/Controller/ModuleController.php"
+  type: annotation
+  prefix: /formations/modules
+
+StcwStudentBundlePromotion:
+  resource: "@StcwStudentBundle/Controller/PromotionController.php"
+  type: annotation
+
+StcwStudentBundleCategory:
+  resource: "@StcwStudentBundle/Controller/CategoryController.php"
+  type: annotation
+
+StcwStudentBundleSchool:
+  resource: "@StcwStudentBundle/Controller/SchoolController.php"
+  type: annotation
+
+StcwStudentBundleClasse:
+  resource: "@StcwStudentBundle/Controller/ClasseController.php"
+  type: annotation

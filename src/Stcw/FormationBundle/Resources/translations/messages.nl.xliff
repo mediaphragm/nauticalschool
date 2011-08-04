@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Formations</source>
+                <target>Vormingen</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Courses</source>
+                <target>Cursussen</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Courses list</source>
+                <target>Cursussen lijst</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>show</source>
+                <target>tonen</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>edit</source>
+                <target>verwerken</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Create a new entry</source>
+                <target>Maak een nieuw item</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Edit</source>
+                <target>Verwerken</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Back to the list</source>
+                <target>Terug naar lijst</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

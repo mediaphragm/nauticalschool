@@ -1,0 +1,18 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+
+{% block content %}
+<div class="student">
+    <table>
+        <tr>
+            <td>{{ student.lastname }}</td>
+            <td>{{ student.firstname }}</td>
+            <td>{{ student.milid }}</td>
+        </tr>
+        <tr><th>Profile</th></tr>
+        <tr>
+            <td>{{ student.profile.language }}
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

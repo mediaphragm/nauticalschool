@@ -1,0 +1,40 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>{{ entity.title }}</h2>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
+        <tr>
+            <th>Credit</th>                <td>{{ entity.credit }}</td>        </tr>
+        <tr>
+            <th>Si</th>                <td>{{ entity.si }}</td>        </tr>
+        <tr>
+            <th>Level</th>                <td>{{ entity.level }}</td>        </tr>
+<tr><th>Courses</th></tr>
+{% for course in entity.courses %}
+<tr><td> {{ course.code }} - {{ course.title }} </td></tr>
+{% endfor %}
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('modules') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('modules_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('modules_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

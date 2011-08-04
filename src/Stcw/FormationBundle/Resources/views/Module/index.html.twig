@@ -1,0 +1,38 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>Module list</h2>
+<hr />
+<ul class="createlink">
+    <li>
+        <a href="{{ path('modules_new') }}">
+            {% trans %}Create a new entry {% endtrans %}
+        </a>
+    </li>
+</ul>
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.title }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('modules_show', { 'id': entity.id }) }}">{% trans %}show {% endtrans %}</a>
+                        &nbsp;
+                        <a href="{{ path('modules_edit', { 'id': entity.id }) }}">{% trans %}edit {% endtrans %}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

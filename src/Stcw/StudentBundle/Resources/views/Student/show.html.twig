@@ -1,0 +1,32 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>{{ entity.lastname }} {{ entity.firstname }}</h2>
+<h3>{{ entity.milid }}</h3>
+<hr />
+
+<p>Date of birth : {{ entity.profile.DateOfBirth | date('d/m/Y')}} </p>
+<p>Place of birth : {{ entity.profile.PlaceOfBirth }}</p>
+<p>Category : {{ entity.category }} </p>
+<p>Promotion : {{ entity.promotion }}</p>
+<p>Language : {{ entity.profile.language }}</p>
+
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('student') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('student_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('student_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

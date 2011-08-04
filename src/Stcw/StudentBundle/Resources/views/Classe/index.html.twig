@@ -1,0 +1,32 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>Classes list</h2>
+<hr />
+<ul class="createlink">
+    <li>
+        <a href="{{ path('classe_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+<table class="records_list">
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.title }}</td>
+            <td>( {{ entity.students.count }} students )</td>
+        <td>
+
+                        <a href="{{ path('classe_show', { 'id': entity.id }) }}">show</a>
+                    &nbsp;
+                        <a href="{{ path('classe_edit', { 'id': entity.id }) }}">edit</a>
+
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>{% trans %}Student Category Creation{% endtrans %}</h2>
+
+<form action="{{ path('category_create') }}" method="post" {{ form_enctype(form) }}>
+    
+    <table class="record_properties">
+        <tr>
+            <td>{% trans %} Title {% endtrans %}</td><td>{{ form_widget(form.title) }}</td>
+        </tr>
+        <tr>
+            <td>{% trans %} Full title {% endtrans %}</td><td>{{ form_widget(form.longtitle) }}</td>
+        </tr>
+        <tr>
+            <td>Modules</td><td>
+<ul>                
+{% for module in form.modules %}
+    <li>{{ form_widget(module) }}&nbsp; {{form_label(module) }}</li>
+    {% endfor %}
+    </ul>
+            </td>
+        </tr>
+    </table>
+    {{ form_rest(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('category') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

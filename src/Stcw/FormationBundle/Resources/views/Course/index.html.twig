@@ -1,0 +1,40 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>{% trans %}Courses list{% endtrans %}</h2>
+<hr />
+<ul class="createlink">
+    <li>
+        <a href="{{ path('_new') }}">
+            {% trans %}Create a new entry{% endtrans %}
+        </a>
+    </li>
+</ul>
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Title</th>
+            <th>Exam</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.code }}</td>
+            <td>{{ entity.title }}</td>
+            <td>{{ entity.exam }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                        &nbsp;
+                        <a href="{{ path('_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

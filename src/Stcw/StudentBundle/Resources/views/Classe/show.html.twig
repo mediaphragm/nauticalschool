@@ -1,0 +1,30 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>{{ entity.title }}</h2>
+
+<table class="record_properties">
+    <tbody>
+    <thead>Students</thead>
+        {% for student in entity.students %}
+        <tr><td>{{ student.lastname }}</td>
+            <td>{{ student.firstname }}</td>
+            <td>{{ student.milid }}</td>
+            <td>{{ student.profile.language }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('classe') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('classe_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+</ul>
+{%endblock%}

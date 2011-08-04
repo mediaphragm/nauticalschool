@@ -1,0 +1,39 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h2>Module edit</h2>
+
+<form action="{{ path('modules_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<table class="record_properties">
+<tr><th>{{form_label(edit_form.title)}}</th><td>{{form_widget(edit_form.title)}}</td></tr>
+<tr><th>{{form_label(edit_form.credit)}}</th><td>{{form_widget(edit_form.credit)}}</td></tr>
+<tr><th>{{form_label(edit_form.si)}}</th><td>{{form_widget(edit_form.si)}}</td></tr>
+<tr><th>{{form_label(edit_form.level)}}</th><td>{{form_widget(edit_form.level)}}</td></tr>
+<tr><th>Courses</th>
+<ul>
+<td>{% for course in edit_form.courses %}
+<li>{{ form_widget(course) }} {{form_label(course)}}</li>
+{% endfor %}
+</ul></td></tr>
+
+
+</table>
+{{ form_rest(edit_form) }}
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('modules') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('modules_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

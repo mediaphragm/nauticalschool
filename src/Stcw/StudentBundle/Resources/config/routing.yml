@@ -1,0 +1,3 @@
+StcwStudentBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: StcwStudentBundle:Default:index }

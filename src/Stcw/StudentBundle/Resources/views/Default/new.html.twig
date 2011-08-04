@@ -1,0 +1,9 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+
+{% block content %}
+<form action="{{ path('student_new') }}" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+{{ form_widget(form) }}
+    <input type="submit" />
+</form>
+{% endblock %}
