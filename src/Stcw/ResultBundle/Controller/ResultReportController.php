@@ -60,7 +60,7 @@ class ResultReportController extends Controller
     {
         /* @todo: Form Classe / Individuel */
         $entity = new ResultReport();
-        $classe_id = 7;
+        $classe_id = 2;
         $em = $this->getDoctrine()->getEntityManager();
         $classe = $em->getRepository('StcwStudentBundle:Classe')->findByRelated($classe_id);
         if(!$classe)

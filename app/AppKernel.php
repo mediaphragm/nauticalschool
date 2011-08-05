@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             //new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             //new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
-            new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+            //new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Stcw\StudentBundle\StcwStudentBundle(),
             new Stcw\CertificateBundle\StcwCertificateBundle(),
             new Stcw\DeskBundle\StcwDeskBundle(),

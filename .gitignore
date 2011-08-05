@@ -1,0 +1,6 @@
+app/cache/*
+app/logs/*
+app/config/parameters.ini
+web/app_dev.php
+web/config.php
+

@@ -68,7 +68,7 @@ class ClasseRepository extends EntityRepository
                 ->setParameter('id', $id)
                 ->getQuery();
 
-        return $query->getSingleResult();
+        return $query->getOneOrNullResult();
     }
     
 }
