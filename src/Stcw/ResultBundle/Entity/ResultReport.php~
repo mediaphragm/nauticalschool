@@ -1,0 +1,45 @@
+<?php
+
+/*
+ * This file is part of the Nautical School Application.
+ *
+ * (c) Christophe Willemsen <willemsen.christophe@gmail.com>
+ *
+ */
+namespace Stcw\ResultBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity(repositoryClass="Stcw\ResultBundle\Repository\ResultReportRepository")
+ * @ORM\Table(name="report")
+ */
+
+class ResultReport
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $examinator;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Result", inversedBy="report")
+     * @ORM\JoinTable(name="report_results",
+     * joinColumns={@ORM\JoinColumn(name="report_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="result_id", referencedColumnName="id")})
+     */
+    protected $results;
+    
+    public function __toString()
+    {
+        return 'Report #'.$this->getId();
+    }
+}

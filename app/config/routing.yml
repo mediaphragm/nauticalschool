@@ -1,3 +1,11 @@
+StcwResultBundle:
+    resource: "@StcwResultBundle/Resources/config/routing/result.yml"
+    prefix:   /result
+    
+StcwResultBundle:
+    resource: "@StcwResultBundle/Resources/config/routing/resultreport.yml"
+    prefix:   /report
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Stcw\DeskBundle\StcwDeskBundle(),
             new Stcw\SchoolBundle\StcwSchoolBundle(),
             new Stcw\FormationBundle\StcwFormationBundle(),
+            new Stcw\ResultBundle\StcwResultBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

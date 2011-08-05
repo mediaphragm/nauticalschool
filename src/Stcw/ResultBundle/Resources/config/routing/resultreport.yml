@@ -1,0 +1,30 @@
+resultreport:
+    pattern:  /
+    defaults: { _controller: "StcwResultBundle:ResultReport:index" }
+
+resultreport_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "StcwResultBundle:ResultReport:show" }
+
+resultreport_new:
+    pattern:  /new
+    defaults: { _controller: "StcwResultBundle:ResultReport:new" }
+
+resultreport_create:
+    pattern:  /create
+    defaults: { _controller: "StcwResultBundle:ResultReport:create" }
+    requirements: { _method: post }
+
+resultreport_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "StcwResultBundle:ResultReport:edit" }
+
+resultreport_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "StcwResultBundle:ResultReport:update" }
+    requirements: { _method: post }
+
+resultreport_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "StcwResultBundle:ResultReport:delete" }
+    requirements: { _method: post }

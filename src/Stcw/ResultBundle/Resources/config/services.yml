@@ -1,0 +1,7 @@
+parameters:
+#    stcw_result.example.class: Stcw\ResultBundle\Example
+
+services:
+#    stcw_result.example:
+#        class: %stcw_result.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

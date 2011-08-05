@@ -1,0 +1,41 @@
+{% extends "StcwDeskBundle::layout.html.twig" %}
+{% block content %}
+<h1>ResultReport creation</h1>
+
+<form action="{{ path('resultreport_create') }}" method="post" id="report_form"{{ form_enctype(form) }}>
+    <p>
+    {{ form_label(form.examinator) }} &nbsp; {{ form_widget(form.examinator) }}
+    </p>
+    <p id="add-element">merde</p>
+    <div id="results_prot">
+    {{ form_widget(form.results) }}
+    </div>
+    {{form_rest(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('resultreport') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+<script type="text/javascript">
+    jQuery('#add-element').click(function() {
+        var prototype = jQuery('#stcw_resultbundle_resultreporttype_results').attr('data-prototype');
+        var lr = $('#results_prot div').length;
+        // the level of the prototype is replaced by $$name$$
+        // you might have have to change this to be coherent
+        // with your row ordering.
+        prototype = prototype.replace(/\$\$name\$\$/g, lr);
+
+        // Append the prototype to the DOM
+        jQuery('#results_prot').append(prototype);
+    });
+</script>
+{% endblock %}
+

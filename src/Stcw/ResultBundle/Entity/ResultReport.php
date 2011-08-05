@@ -1,0 +1,99 @@
+<?php
+
+/*
+ * This file is part of the Nautical School Application.
+ *
+ * (c) Christophe Willemsen <willemsen.christophe@gmail.com>
+ *
+ */
+namespace Stcw\ResultBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity(repositoryClass="Stcw\ResultBundle\Repository\ResultReportRepository")
+ * @ORM\Table(name="report")
+ */
+
+class ResultReport
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $examinator;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Result", inversedBy="report", cascade={"persist"})
+     * @ORM\JoinTable(name="report_results",
+     * joinColumns={@ORM\JoinColumn(name="report_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="result_id", referencedColumnName="id")})
+     */
+    protected $results;
+    
+    public function __toString()
+    {
+        return 'Report #'.$this->getId();
+    }
+    public function __construct()
+    {
+        $this->results = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set examinator
+     *
+     * @param string $examinator
+     */
+    public function setExaminator($examinator)
+    {
+        $this->examinator = $examinator;
+    }
+
+    /**
+     * Get examinator
+     *
+     * @return string 
+     */
+    public function getExaminator()
+    {
+        return $this->examinator;
+    }
+
+    /**
+     * Add results
+     *
+     * @param Stcw\ResultBundle\Entity\Result $results
+     */
+    public function addResults(\Stcw\ResultBundle\Entity\Result $results)
+    {
+        $this->results[] = $results;
+    }
+
+    /**
+     * Get results
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getResults()
+    {
+        return $this->results;
+    }
+}
