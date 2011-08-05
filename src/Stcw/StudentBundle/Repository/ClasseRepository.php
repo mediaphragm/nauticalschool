@@ -58,4 +58,17 @@ class ClasseRepository extends EntityRepository
         return $query->getQuery()->getResult();
     }
     
+    public function findByRelated($id)
+    {
+        $query = $this->createQueryBuilder('c')
+                ->addSelect('s')
+                ->leftJoin('c.students', 's')
+                ->where('c.id = :id')
+                ->orderBy('s.lastname')
+                ->setParameter('id', $id)
+                ->getQuery();
+
+        return $query->getSingleResult();
+    }
+    
 }

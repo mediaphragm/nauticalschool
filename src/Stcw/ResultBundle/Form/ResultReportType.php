@@ -11,6 +11,7 @@ class ResultReportType extends AbstractType
     {
         $builder
             ->add('examinator')
+            ->add('course')
             ->add('results','collection',array(
                 'type' => new ResultType(),
                 'prototype' => true,

@@ -6,7 +6,15 @@
             <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
         <tr>
             <th>Examinator</th>                <td>{{ entity.examinator }}</td>        </tr>
+        <tr><th>Course</th><td>{{ entity.course }}</td></tr>
     </tbody>
+</table>
+<table>
+<thead>Results</thead>
+<tr><th>Name</th><th>Result</th></tr>
+{% for result in entity.results %}
+<tr><td>{{ result.student }}</td><td>{{ result.score }}</td></tr>
+{% endfor %}
 </table>
 
 <ul class="record_actions">

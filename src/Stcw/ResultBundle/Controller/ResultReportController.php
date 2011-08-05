@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Stcw\ResultBundle\Entity\ResultReport;
 use Stcw\ResultBundle\Form\ResultReportType;
 use Stcw\ResultBundle\Entity\Result;
+use Stcw\StudentBundle\Entity\Classe;
 
 /**
  * ResultReport controller.
@@ -57,8 +58,22 @@ class ResultReportController extends Controller
      */
     public function newAction()
     {
+        /* @todo: Form Classe / Individuel */
         $entity = new ResultReport();
-        $entity->getResults()->add(new Result());
+        $classe_id = 7;
+        $em = $this->getDoctrine()->getEntityManager();
+        $classe = $em->getRepository('StcwStudentBundle:Classe')->findByRelated($classe_id);
+        if(!$classe)
+        {
+            throw $this->createNotFoundException('The Class with id "'.$classe_id.'" does not exist');
+        }
+        foreach($classe->getStudents() as $student)
+        {
+            $result = new Result();
+            $result->setStudent($student);
+            $entity->getResults()->add($result);
+        }
+        
         $form   = $this->createForm(new ResultReportType(), $entity);
 
         return $this->render('StcwResultBundle:ResultReport:new.html.twig', array(
@@ -80,6 +95,11 @@ class ResultReportController extends Controller
         
 
         if ($form->isValid()) {
+            $course = $entity->getCourse();
+            foreach($entity->getResults() as $res)
+            {
+                $res->setCourse($course);
+            }
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();

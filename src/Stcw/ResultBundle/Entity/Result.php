@@ -35,6 +35,11 @@ class Result
      */
     protected $student;
     
+        /**
+     * @ORM\ManyToOne(targetEntity="Stcw\FormationBundle\Entity\Course")
+     */
+    protected $course;
+    
     /**
      * @ORM\ManyToMany(targetEntity="ResultReport", mappedBy="results", cascade={"persist"})
      */
@@ -113,5 +118,25 @@ class Result
     public function getReport()
     {
         return $this->report;
+    }
+
+    /**
+     * Set course
+     *
+     * @param Stcw\FormationBundle\Entity\Course $course
+     */
+    public function setCourse(\Stcw\FormationBundle\Entity\Course $course)
+    {
+        $this->course = $course;
+    }
+
+    /**
+     * Get course
+     *
+     * @return Stcw\FormationBundle\Entity\Course 
+     */
+    public function getCourse()
+    {
+        return $this->course;
     }
 }

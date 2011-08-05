@@ -31,6 +31,11 @@ class ResultReport
     protected $examinator;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Stcw\FormationBundle\Entity\Course")
+     */
+    protected $course;
+    
+    /**
      * @ORM\ManyToMany(targetEntity="Result", inversedBy="report", cascade={"persist"})
      * @ORM\JoinTable(name="report_results",
      * joinColumns={@ORM\JoinColumn(name="report_id", referencedColumnName="id")},
@@ -95,5 +100,25 @@ class ResultReport
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * Set course
+     *
+     * @param Stcw\FormationBundle\Entity\Course $course
+     */
+    public function setCourse(\Stcw\FormationBundle\Entity\Course $course)
+    {
+        $this->course = $course;
+    }
+
+    /**
+     * Get course
+     *
+     * @return Stcw\FormationBundle\Entity\Course 
+     */
+    public function getCourse()
+    {
+        return $this->course;
     }
 }

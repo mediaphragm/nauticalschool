@@ -35,9 +35,88 @@ class Result
      */
     protected $student;
     
+        /**
+     * @ORM\ManyToOne(targetEntity="Stcw\FormationBundle\Entity\Course")
+     */
+    protected $course;
+    
     /**
      * @ORM\ManyToMany(targetEntity="ResultReport", mappedBy="results", cascade={"persist"})
      */
     protected $report;
     
+    public function __construct()
+    {
+        $this->report = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set score
+     *
+     * @param string $score
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    }
+
+    /**
+     * Get score
+     *
+     * @return string 
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * Set student
+     *
+     * @param Stcw\StudentBundle\Entity\Student $student
+     */
+    public function setStudent(\Stcw\StudentBundle\Entity\Student $student)
+    {
+        $this->student = $student;
+    }
+
+    /**
+     * Get student
+     *
+     * @return Stcw\StudentBundle\Entity\Student 
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    /**
+     * Add report
+     *
+     * @param Stcw\ResultBundle\Entity\ResultReport $report
+     */
+    public function addReport(\Stcw\ResultBundle\Entity\ResultReport $report)
+    {
+        $this->report[] = $report;
+    }
+
+    /**
+     * Get report
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getReport()
+    {
+        return $this->report;
+    }
 }
