@@ -1,6 +1,7 @@
-app/cache/*
-app/logs/*
-app/config/parameters.ini
+app/cache/
+app/logs/
+#app/config/parameters.ini
 web/app_dev.php
 web/config.php
-
+apachelogs/*
+web/apc.php
